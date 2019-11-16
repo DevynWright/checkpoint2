@@ -14,7 +14,69 @@
     <title>Checkpoint2</title>
   </head>
   <body>
-    <h1>The Game</h1>
+    <header class="container text-center">
+      <div class="row">
+        <div class="col-12"><h1>CA$H COLLECTOR!</h1></div>
+        <div class="col-12">
+          <h1>
+            CA$H FLOW:
+            <h1 id="cashFlow"></h1>
+          </h1>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid" id="top">
+      <div class="row">
+        <div class="order-sm-2 order-md-1 col-md-4 col-sm-6">
+          <button onclick="buyShovel()" class="btn btn-danger">
+            Buy bigger Shovel for more cash on click
+          </button>
+          <p>
+            Shovel count:
+            <script id="shovel"></script>
+          </p>
+          <br />
+          <button class="btn btn-danger">
+            auto collect
+          </button>
+          <p>
+            level
+            <script></script>
+            <br />
+            price
+            <script></script>
+          </p>
+        </div>
+        <div class="order-sm-1 order-md-2 col-md-4 col-sm-12">
+          <img
+            src="https://media0.giphy.com/media/jEwE20qDP9OMg/source.gif"
+            height="200px"
+            width="200px"
+            onclick="mine();"
+            alt=""
+          />
+        </div>
+        <div class="order-sm-3 order-md-3 col-md-4 col-sm-6">
+          <br />$# per second
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid" id="middle">
+      <div class="row">
+        <div class="col-3">Deli</div>
+        <div class="col-3">NightClub</div>
+        <div class="col-3">Hotel</div>
+        <div class="col-3">Bank</div>
+      </div>
+    </div>
+    <footer class="container-fluid">
+      <div class="row">
+        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
+        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
+        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
+        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
+      </div>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>
