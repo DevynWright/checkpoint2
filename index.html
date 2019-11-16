@@ -31,21 +31,13 @@
           <button onclick="buyShovel()" class="btn btn-danger">
             Buy bigger Shovel for more cash on click
           </button>
-          <p>
-            Shovel count:
-            <script id="shovel"></script>
-          </p>
-          <br />
-          <button class="btn btn-danger">
+          <p id="shovel"></p>
+          <p id="sPrice"></p>
+          <button onclick="autoClicker()" class="btn btn-danger">
             auto collect
           </button>
-          <p>
-            level
-            <script></script>
-            <br />
-            price
-            <script></script>
-          </p>
+          <p id="autolvl"></p>
+          <p id="autoprice"></p>
         </div>
         <div class="order-sm-1 order-md-2 col-md-4 col-sm-12">
           <img
@@ -63,18 +55,44 @@
     </div>
     <div class="container-fluid" id="middle">
       <div class="row">
-        <div class="col-3">Deli</div>
-        <div class="col-3">NightClub</div>
-        <div class="col-3">Hotel</div>
-        <div class="col-3">Bank</div>
+        <div class="col-3">
+          <h1>Deli</h1>
+          <p class="dlvl"></p>
+          <p class="dprice"></p>
+        </div>
+        <div class="col-3">
+          <h1>Nightclub</h1>
+          <p class="nclvl"></p>
+          <p class="ncprice"></p>
+        </div>
+        <div class="col-3">
+          <h1>Hotel</h1>
+          <p class="hlvl"></p>
+          <p class="hprice"></p>
+        </div>
+        <div class="col-3">
+          <h1>Bank</h1>
+          <p class="blvl"></p>
+          <p class="bprice"></p>
+        </div>
       </div>
     </div>
     <footer class="container-fluid">
       <div class="row">
-        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
-        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
-        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
-        <div class="col-3"><button class="btn btn-danger">upgrade</button></div>
+        <div class="col-3">
+          <button onclick="autoDeli()" class="btn btn-danger">upgrade</button>
+        </div>
+        <div class="col-3">
+          <button onclick="autoNightClub()" class="btn btn-danger">
+            upgrade
+          </button>
+        </div>
+        <div class="col-3">
+          <button onclick="autoHotel()" class="btn btn-danger">upgrade</button>
+        </div>
+        <div class="col-3">
+          <button onclick="autoBank()" class="btn btn-danger">upgrade</button>
+        </div>
       </div>
     </footer>
     <script src="app.js"></script>

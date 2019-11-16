@@ -10,48 +10,64 @@ let automaticCollect = {
     price: 250,
     quantity: 0,
     multiplier: 5
-  }
-};
-let autoDeli = {
+  },
   deli: {
     price: 750,
     quantity: 0,
     multiplier: 15
-  }
-};
-let autonightClub = {
+  },
   nightClub: {
     price: 1250,
     quantity: 0,
     multiplier: 25
-  }
-};
-let autoHotel = {
+  },
   hotel: {
     price: 3000,
     quantity: 0,
     multiplier: 50
-  }
-};
-let autoBank = {
+  },
   bank: {
-    price: 7000,
+    price: 7,
     quantity: 0,
     multiplier: 105
   }
 };
 
+let autoIncr = 0;
+let clickIncr = clickUpgrades.shovel.quantity;
+
 let cashFlow = 0;
-let shovels = clickUpgrades.shovel.quantity;
+let flowElem = document.querySelector("#cashFlow");
+
+let sPriceElem = document.querySelector("#sPrice");
+let shovelElem = document.querySelector("#shovel");
+
+let clicklvl = document.querySelector("#autolvl");
+let clickprice = document.querySelector("#autoprice");
+
+let devynW = document.querySelector("#dlvl");
+let deliprice = document.querySelector("#dprice");
+
+let nclvl = document.querySelector("#nclvl");
+let ncprice = document.querySelector("#ncprice");
+
+let hotellvl = document.querySelector("#hlvl");
+let hotelprice = document.querySelector("#hprice");
+
+let banklvl = document.querySelector("#blvl");
+let bankprice = document.querySelector("#bprice");
 
 function update() {
-  document.querySelector("#cashFlow").innerHTML = `<p>$:${cashFlow}</p>`;
+  flowElem.innerText = `$:${cashFlow}`;
+  shovelElem.innerText = `Shovel Count:${clickUpgrades.shovel.quantity}`;
+  sPriceElem.innerText = `Price $:${clickUpgrades.shovel.price}`;
+  clicklvl.innerText = `Level:${automaticCollect.autoCollect.quantity}`;
+  clickprice.innerText = `Price $:${automaticCollect.autoCollect.price}`;
 }
 function mine() {
   cashFlow +=
     1 + clickUpgrades.shovel.multiplier * clickUpgrades.shovel.quantity;
   console.log(cashFlow);
-  console.log(shovels);
   update();
 }
 function buyShovel() {
@@ -59,8 +75,68 @@ function buyShovel() {
     return;
   }
   cashFlow -= clickUpgrades.shovel.price;
-  clickUpgrades.shovel.price += 5;
+  clickUpgrades.shovel.price *= 2;
   clickUpgrades.shovel.quantity += 1;
+  console.log("purchased");
   update();
 }
+
+function autoClicker() {
+  if (cashFlow >= automaticCollect.autoCollect.price) {
+    automaticCollect.autoCollect.quantity++;
+    cashFlow -= automaticCollect.autoCollect.price;
+    autoIncr += automaticCollect.autoCollect.multiplier;
+    automaticCollect.autoCollect.price *= 1.5;
+    update();
+  }
+}
+function autoDeli() {
+  if (cashFlow >= automaticCollect.deli.price) {
+    automaticCollect.deli.quantity++;
+    cashFlow -= automaticCollect.deli.price;
+    autoIncr += automaticCollect.deli.multiplier;
+    automaticCollect.deli.price *= 1.5;
+    update();
+  }
+}
+function autoNightClub() {
+  if (cashFlow >= automaticCollect.nightClub.price) {
+    automaticCollect.nightClub.quantity++;
+    cashFlow -= automaticCollect.nightClub.price;
+    autoIncr += automaticCollect.nightClub.multiplier;
+    automaticCollect.nightClub.price *= 1.5;
+    update();
+  }
+}
+function autoHotel() {
+  if (cashFlow >= automaticCollect.hotel.price) {
+    automaticCollect.hotel.quantity++;
+    cashFlow -= automaticCollect.hotel.price;
+    autoIncr += automaticCollect.hotel.multiplier;
+    automaticCollect.hotel.price *= 1.5;
+    update();
+  }
+}
+function autoBank() {
+  if (cashFlow >= automaticCollect.bank.price) {
+    automaticCollect.bank.quantity++;
+    cashFlow -= automaticCollect.bank.price;
+    autoIncr += automaticCollect.bank.multiplier;
+    automaticCollect.bank.price *= 1.5;
+    update();
+  }
+}
+
+function startTimer() {
+  let timer = setInterval(autoUpgrades, 2000);
+}
+
+function autoUpgrades() {
+  if (autoIncr > 0) {
+    cashFlow += autoIncr;
+    update();
+  }
+}
+
+startTimer();
 update();
