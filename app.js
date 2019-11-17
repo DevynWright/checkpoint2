@@ -32,7 +32,8 @@ let automaticCollect = {
     multiplier: 105
   }
 };
-
+let deliPriceElem = document.querySelector("#deli-price");
+let deliLevelElem = document.querySelector("#deli-level");
 let manIncr = 1;
 let mIncrElem = document.querySelector("#maIncr");
 let autoIncr = 0;
@@ -45,6 +46,15 @@ let shovelElem = document.querySelector("#shovel");
 let clicklvl = document.querySelector("#autolvl");
 let clickprice = document.querySelector("#autoprice");
 
+let nightClubLevel = document.querySelector("#nclvl");
+let nightClubPrice = document.querySelector("#ncprice");
+
+let hotelLevel = document.querySelector("#hlvl");
+let hotelPrice = document.querySelector("#hprice");
+
+let bankLevel = document.querySelector("#blvl");
+let bankPrice = document.querySelector("#bprice");
+
 function update() {
   flowElem.innerText = `$:${cashFlow}`;
   aIncrElem.innerText = `$${autoIncr} per second`;
@@ -53,7 +63,16 @@ function update() {
   sPriceElem.innerText = `Price $:${clickUpgrades.shovel.price}`;
   clicklvl.innerText = `Level:${automaticCollect.autoCollect.quantity}`;
   clickprice.innerText = `Price $:${automaticCollect.autoCollect.price}`;
+  deliPriceElem.innerText = `Price $:${automaticCollect.deli.price}`;
+  deliLevelElem.innerText = `Level:${automaticCollect.deli.quantity}`;
+  nightClubPrice.innerText = `Level:${automaticCollect.nightClub.price}`;
+  nightClubLevel.innerText = `Level:${automaticCollect.nightClub.quantity}`;
+  hotelPrice.innerText = `Level:${automaticCollect.hotel.price}`;
+  hotelLevel.innerText = `Level:${automaticCollect.hotel.quantity}`;
+  bankPrice.innerText = `Level:${automaticCollect.bank.price}`;
+  bankLevel.innerText = `Level:${automaticCollect.bank.quantity}`;
 }
+
 function mine() {
   cashFlow +=
     1 + clickUpgrades.shovel.multiplier * clickUpgrades.shovel.quantity;
@@ -87,6 +106,7 @@ function autoDeli() {
     cashFlow -= automaticCollect.deli.price;
     autoIncr += automaticCollect.deli.multiplier;
     automaticCollect.deli.price *= 2;
+    console.log;
     update();
   }
 }
@@ -128,6 +148,5 @@ function autoUpgrades() {
     update();
   }
 }
-
 startTimer();
 update();
