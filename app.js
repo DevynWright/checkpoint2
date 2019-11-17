@@ -7,7 +7,7 @@ let clickUpgrades = {
 };
 let automaticCollect = {
   autoCollect: {
-    price: 250,
+    price: 2,
     quantity: 0,
     multiplier: 5
   },
@@ -27,38 +27,29 @@ let automaticCollect = {
     multiplier: 50
   },
   bank: {
-    price: 7,
+    price: 7000,
     quantity: 0,
     multiplier: 105
   }
 };
 
+let manIncr = 1;
+let mIncrElem = document.querySelector("#maIncr");
 let autoIncr = 0;
+let aIncrElem = document.querySelector("#autoCount");
 let clickIncr = clickUpgrades.shovel.quantity;
-
 let cashFlow = 0;
 let flowElem = document.querySelector("#cashFlow");
-
 let sPriceElem = document.querySelector("#sPrice");
 let shovelElem = document.querySelector("#shovel");
-
 let clicklvl = document.querySelector("#autolvl");
 let clickprice = document.querySelector("#autoprice");
-
-let devynW = document.querySelector("#dlvl");
-let deliprice = document.querySelector("#dprice");
-
-let nclvl = document.querySelector("#nclvl");
-let ncprice = document.querySelector("#ncprice");
-
-let hotellvl = document.querySelector("#hlvl");
-let hotelprice = document.querySelector("#hprice");
-
-let banklvl = document.querySelector("#blvl");
-let bankprice = document.querySelector("#bprice");
+let deliPriceElem = document.querySelector("#dlvl");
 
 function update() {
   flowElem.innerText = `$:${cashFlow}`;
+  aIncrElem.innerText = `$${autoIncr} per second`;
+  mIncrElem.innerText = `$${manIncr} per click`;
   shovelElem.innerText = `Shovel Count:${clickUpgrades.shovel.quantity}`;
   sPriceElem.innerText = `Price $:${clickUpgrades.shovel.price}`;
   clicklvl.innerText = `Level:${automaticCollect.autoCollect.quantity}`;
@@ -77,6 +68,7 @@ function buyShovel() {
   cashFlow -= clickUpgrades.shovel.price;
   clickUpgrades.shovel.price *= 2;
   clickUpgrades.shovel.quantity += 1;
+  manIncr++;
   console.log("purchased");
   update();
 }
@@ -86,7 +78,7 @@ function autoClicker() {
     automaticCollect.autoCollect.quantity++;
     cashFlow -= automaticCollect.autoCollect.price;
     autoIncr += automaticCollect.autoCollect.multiplier;
-    automaticCollect.autoCollect.price *= 1.5;
+    automaticCollect.autoCollect.price *= 2;
     update();
   }
 }
@@ -95,7 +87,7 @@ function autoDeli() {
     automaticCollect.deli.quantity++;
     cashFlow -= automaticCollect.deli.price;
     autoIncr += automaticCollect.deli.multiplier;
-    automaticCollect.deli.price *= 1.5;
+    automaticCollect.deli.price *= 2;
     update();
   }
 }
@@ -104,7 +96,7 @@ function autoNightClub() {
     automaticCollect.nightClub.quantity++;
     cashFlow -= automaticCollect.nightClub.price;
     autoIncr += automaticCollect.nightClub.multiplier;
-    automaticCollect.nightClub.price *= 1.5;
+    automaticCollect.nightClub.price *= 2;
     update();
   }
 }
@@ -113,7 +105,7 @@ function autoHotel() {
     automaticCollect.hotel.quantity++;
     cashFlow -= automaticCollect.hotel.price;
     autoIncr += automaticCollect.hotel.multiplier;
-    automaticCollect.hotel.price *= 1.5;
+    automaticCollect.hotel.price *= 2;
     update();
   }
 }
@@ -122,13 +114,13 @@ function autoBank() {
     automaticCollect.bank.quantity++;
     cashFlow -= automaticCollect.bank.price;
     autoIncr += automaticCollect.bank.multiplier;
-    automaticCollect.bank.price *= 1.5;
+    automaticCollect.bank.price *= 2;
     update();
   }
 }
 
 function startTimer() {
-  let timer = setInterval(autoUpgrades, 2000);
+  let timer = setInterval(autoUpgrades, 1000);
 }
 
 function autoUpgrades() {
