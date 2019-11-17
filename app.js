@@ -32,45 +32,70 @@ let automaticCollect = {
     multiplier: 105
   }
 };
-let deliPriceElem = document.querySelector("#deli-price");
-let deliLevelElem = document.querySelector("#deli-level");
-let manIncr = 1;
-let mIncrElem = document.querySelector("#maIncr");
-let autoIncr = 0;
-let aIncrElem = document.querySelector("#autoCount");
-let clickIncr = clickUpgrades.shovel.quantity;
 let cashFlow = 0;
+let manIncr = 1;
+let autoIncr = 0;
+
+let mIncrElem = document.querySelector("#maIncr");
+
+let aIncrElem = document.querySelector("#autoCount");
+
+let clickIncr = clickUpgrades.shovel.quantity;
+
 let flowElem = document.querySelector("#cashFlow");
+
 let sPriceElem = document.querySelector("#sPrice");
 let shovelElem = document.querySelector("#shovel");
+let sMuliElem = document.querySelector("#smuli");
+
 let clicklvl = document.querySelector("#autolvl");
 let clickprice = document.querySelector("#autoprice");
+let clickMuliElem = document.querySelector("#amuli");
+
+let deliPriceElem = document.querySelector("#deli-price");
+let deliLevelElem = document.querySelector("#deli-level");
+let deliMuliElem = document.querySelector("#deli-mul");
 
 let nightClubLevel = document.querySelector("#nclvl");
 let nightClubPrice = document.querySelector("#ncprice");
+let nightClubMul = document.querySelector("#ncmul");
 
 let hotelLevel = document.querySelector("#hlvl");
 let hotelPrice = document.querySelector("#hprice");
+let hotelMul = document.querySelector("#hmul");
 
 let bankLevel = document.querySelector("#blvl");
 let bankPrice = document.querySelector("#bprice");
+let bankMul = document.querySelector("#bmul");
 
 function update() {
   flowElem.innerText = `$:${cashFlow}`;
   aIncrElem.innerText = `$${autoIncr} per second`;
   mIncrElem.innerText = `$${manIncr} per click`;
+
   shovelElem.innerText = `Shovel Count:${clickUpgrades.shovel.quantity}`;
   sPriceElem.innerText = `Price $:${clickUpgrades.shovel.price}`;
+  sMuliElem.innerText = `+ $${clickUpgrades.shovel.multiplier} per click`;
+
   clicklvl.innerText = `Level:${automaticCollect.autoCollect.quantity}`;
   clickprice.innerText = `Price $:${automaticCollect.autoCollect.price}`;
+  clickMuliElem.innerText = `+ $${automaticCollect.autoCollect.multiplier} per second`;
+
   deliPriceElem.innerText = `Price $:${automaticCollect.deli.price}`;
   deliLevelElem.innerText = `Level:${automaticCollect.deli.quantity}`;
+  deliMuliElem.innerText = `+ $${automaticCollect.deli.multiplier} per second`;
+
   nightClubPrice.innerText = `Level:${automaticCollect.nightClub.price}`;
   nightClubLevel.innerText = `Level:${automaticCollect.nightClub.quantity}`;
+  nightClubMul.innerText = `+ $${automaticCollect.nightClub.multiplier} per second`;
+
   hotelPrice.innerText = `Level:${automaticCollect.hotel.price}`;
   hotelLevel.innerText = `Level:${automaticCollect.hotel.quantity}`;
+  hotelMul.innerText = `+ $${automaticCollect.hotel.multiplier} per second`;
+
   bankPrice.innerText = `Level:${automaticCollect.bank.price}`;
   bankLevel.innerText = `Level:${automaticCollect.bank.quantity}`;
+  bankMul.innerText = `+ $${automaticCollect.bank.multiplier} per second`;
 }
 
 function mine() {
