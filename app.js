@@ -9,27 +9,27 @@ let automaticCollect = {
   autoCollect: {
     price: 25,
     quantity: 0,
-    multiplier: 5
+    multiplier: 15
   },
   deli: {
     price: 750,
     quantity: 0,
-    multiplier: 15
+    multiplier: 150
   },
   nightClub: {
     price: 1250,
     quantity: 0,
-    multiplier: 25
+    multiplier: 250
   },
   hotel: {
     price: 3000,
     quantity: 0,
-    multiplier: 50
+    multiplier: 500
   },
   bank: {
     price: 7000,
     quantity: 0,
-    multiplier: 105
+    multiplier: 1050
   }
 };
 let cashFlow = 0;
@@ -85,15 +85,15 @@ function update() {
   deliLevelElem.innerText = `Level:${automaticCollect.deli.quantity}`;
   deliMuliElem.innerText = `+ $${automaticCollect.deli.multiplier} per second`;
 
-  nightClubPrice.innerText = `Level:${automaticCollect.nightClub.price}`;
+  nightClubPrice.innerText = `Price $${automaticCollect.nightClub.price}`;
   nightClubLevel.innerText = `Level:${automaticCollect.nightClub.quantity}`;
   nightClubMul.innerText = `+ $${automaticCollect.nightClub.multiplier} per second`;
 
-  hotelPrice.innerText = `Level:${automaticCollect.hotel.price}`;
+  hotelPrice.innerText = `Price $:${automaticCollect.hotel.price}`;
   hotelLevel.innerText = `Level:${automaticCollect.hotel.quantity}`;
   hotelMul.innerText = `+ $${automaticCollect.hotel.multiplier} per second`;
 
-  bankPrice.innerText = `Level:${automaticCollect.bank.price}`;
+  bankPrice.innerText = `Price $:${automaticCollect.bank.price}`;
   bankLevel.innerText = `Level:${automaticCollect.bank.quantity}`;
   bankMul.innerText = `+ $${automaticCollect.bank.multiplier} per second`;
 }
