@@ -7,7 +7,7 @@ let clickUpgrades = {
 };
 let automaticCollect = {
   autoCollect: {
-    price: 2,
+    price: 25,
     quantity: 0,
     multiplier: 5
   },
