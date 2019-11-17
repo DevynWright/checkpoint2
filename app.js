@@ -44,7 +44,6 @@ let sPriceElem = document.querySelector("#sPrice");
 let shovelElem = document.querySelector("#shovel");
 let clicklvl = document.querySelector("#autolvl");
 let clickprice = document.querySelector("#autoprice");
-let deliPriceElem = document.querySelector("#dlvl");
 
 function update() {
   flowElem.innerText = `$:${cashFlow}`;
