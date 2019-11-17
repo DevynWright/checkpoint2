@@ -1,3 +1,17 @@
 body {
   height: 100vh;
+  background-image: url("http://giphygifs.s3.amazonaws.com/media/rRb3bulOv0XcY/giphy.gif");
+  background-size: cover;
+  color: whitesmoke;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px blue;
+}
+#title {
+  color: green;
+  text-shadow: whitesmoke;
+  font-family: fantasy;
+}
+#hotel {
+  max-height: 150px;
+  max-height: 150px;
 }
