@@ -3,14 +3,14 @@ let clickUpgrades = {
     price: 10,
     quantity: 0,
     multiplier: 1
-  }
-};
-let automaticCollect = {
-  autoCollect: {
+  },
+  atmCollect: {
     price: 25,
     quantity: 0,
     multiplier: 15
-  },
+  }
+};
+let automaticCollect = {
   deli: {
     price: 750,
     quantity: 0,
@@ -77,9 +77,9 @@ function update() {
   sPriceElem.innerText = `Price $:${clickUpgrades.shovel.price}`;
   sMuliElem.innerText = `+ $${clickUpgrades.shovel.multiplier} per click`;
 
-  clicklvl.innerText = `Level:${automaticCollect.autoCollect.quantity}`;
-  clickprice.innerText = `Price $:${automaticCollect.autoCollect.price}`;
-  clickMuliElem.innerText = `+ $${automaticCollect.autoCollect.multiplier} per second`;
+  clicklvl.innerText = `Level:${clickUpgrades.atmCollect.quantity}`;
+  clickprice.innerText = `Price $:${clickUpgrades.atmCollect.price}`;
+  clickMuliElem.innerText = `+ $${clickUpgrades.atmCollect.multiplier} per click`;
 
   deliPriceElem.innerText = `Price $:${automaticCollect.deli.price}`;
   deliLevelElem.innerText = `Level:${automaticCollect.deli.quantity}`;
@@ -117,11 +117,11 @@ function buyShovel() {
 }
 
 function autoClicker() {
-  if (cashFlow >= automaticCollect.autoCollect.price) {
-    automaticCollect.autoCollect.quantity++;
-    cashFlow -= automaticCollect.autoCollect.price;
-    autoIncr += automaticCollect.autoCollect.multiplier;
-    automaticCollect.autoCollect.price *= 2;
+  if (cashFlow >= clickUpgrades.atmCollect.price) {
+    clickUpgrades.atmCollect.quantity++;
+    cashFlow -= clickUpgrades.atmCollect.price;
+    manIncr += clickUpgrades.atmCollect.multiplier;
+    clickUpgrades.atmCollect.price *= 2;
     update();
   }
 }
