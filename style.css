@@ -1,3 +1,7 @@
+* {
+  cursor: grabbing;
+}
+
 body {
   height: 100vh;
   background-image: url("http://giphygifs.s3.amazonaws.com/media/rRb3bulOv0XcY/giphy.gif");
