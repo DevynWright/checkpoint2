@@ -12,6 +12,11 @@ body {
   font-family: fantasy;
 }
 #hotel {
-  max-height: 150px;
-  max-height: 150px;
+  max-height: 200px;
+}
+#one {
+  max-width: 200px;
+}
+#five {
+  max-width: 200px;
 }

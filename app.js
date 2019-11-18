@@ -7,7 +7,7 @@ let clickUpgrades = {
   atmCollect: {
     price: 25,
     quantity: 0,
-    multiplier: 15
+    multiplier: 5
   }
 };
 let automaticCollect = {
