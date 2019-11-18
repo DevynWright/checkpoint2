@@ -99,9 +99,7 @@ function update() {
 }
 
 function mine() {
-  cashFlow +=
-    1 + clickUpgrades.shovel.multiplier * clickUpgrades.shovel.quantity;
-  console.log(cashFlow);
+  (cashFlow += manIncr), console.log(cashFlow);
   update();
 }
 function buyShovel() {
@@ -120,7 +118,7 @@ function autoClicker() {
   if (cashFlow >= clickUpgrades.atmCollect.price) {
     clickUpgrades.atmCollect.quantity++;
     cashFlow -= clickUpgrades.atmCollect.price;
-    manIncr += clickUpgrades.atmCollect.multiplier;
+    manIncr += 5;
     clickUpgrades.atmCollect.price *= 2;
     update();
   }
